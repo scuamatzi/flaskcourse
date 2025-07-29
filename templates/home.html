@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Página de inicio</title>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Bienvenido a Flask notes.</h1>
+    {% if role=="admin" %}
+    <h2> Eres {{ role }} </h2>
+    {% else %}
+    <p>No tienes permisos administrativos</p>
+    {% endif %}
+
+    <h1>Notas:</h1>
+    <ul>
+      {% for note in notes%}
+      <li>{{ note }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

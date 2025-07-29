@@ -1,11 +1,14 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def hello():
-    return "Hello World from Flask!"
+    # return "Hello World from Flask!"
+    role = "admin"
+    notes = ["nota 1", "nota 2", "nota 3"]
+    return render_template("home.html", role=role, notes=notes)
     # return "Hello World"
 
 
