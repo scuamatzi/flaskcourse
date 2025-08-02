@@ -8,17 +8,24 @@
   </head>
   <body>
     <h1>Bienvenido a Flask notes.</h1>
-    {% if role=="admin" %}
-    <h2> Eres {{ role }} </h2>
-    {% else %}
-    <p>No tienes permisos administrativos</p>
-    {% endif %}
 
     <h1>Notas:</h1>
     <ul>
       {% for note in notes%}
-      <li>{{ note }}</li>
+      <li>{{ note.title }}
+          <br>
+          {{ note.content }}
+          <br>
+          <a href="{{ url_for('edit_note', id=note.id) }}">Editar</a>
+          <form action="{{ url_for("delete_note", id=note.id) }}" method="post">
+            <button type="submit">Eliminar</button>
+          </form>
+      </li>
+      {% else %}
+      Aun no se han creado notas!
       {% endfor %}
     </ul>
+
+    <a href="{{ url_for('create_note') }}">Agregar una nueva nota</a>
   </body>
 </html>

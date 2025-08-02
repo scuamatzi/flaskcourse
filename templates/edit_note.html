@@ -7,15 +7,15 @@
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Crear una nueva nota</h1>
+    <h1>Editar Nota</h1>
     <form method="POST">
       <label for="title">Título</label>
-      <input type="text" name="title" id="title">
+      <input type="text" name="title" id="title" value="{{ note.title }}">
       <br>
       <label for="content">Contenido</label>
-      <input type="text" name="content" id="content">
+      <input type="text" name="content" id="content" value="{{ note.content }}">
 
-      <input type="submit" name="" value="crear nota">
+      <input type="submit" name="" value="Actualizar nota">
     </form>
   </body>
 </html>
