@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Página de inicio</title>
-    <link href="css/style.css" rel="stylesheet">
-  </head>
-  <body>
-    <h1>Bienvenido a Flask notes.</h1>
+{% extends "base.html" %}
 
-    {% with messages=get_flashed_messages(with_categories=True) %}
-      {% if messages %}
-      <ul>
-        {% for category,message in messages %}
-          <li class="{{ category }}"> {{message}}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    {% endwith %}
+{% block content %}
+
 
     <h1>Notas:</h1>
     <ul>
@@ -37,5 +21,5 @@
     </ul>
 
     <a href="{{ url_for('notes.create_note') }}">Agregar una nueva nota</a>
-  </body>
-</html>
+
+{% endblock content %}

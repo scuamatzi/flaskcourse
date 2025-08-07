@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> {% block title %} App Notas {% endblock title %}</title>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body style="background-color: aqua;">
+
+    {% with messages=get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+      <ul>
+        {% for category,message in messages %}
+          <li class="{{ category }}"> {{message}}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock content %}
+  </body>
+</html>
